@@ -53,7 +53,7 @@ func (fs FS) ClassThermalZoneStats() ([]ClassThermalZoneStats, error) {
 		println("TEST err: %v", err)
 		if err != nil {
 			if errors.Is(err, syscall.ENODATA) || errors.As(err, new(*fsp.PathError)) || errors.Is(err, syscall.EAGAIN) ||
-				errors.Is(err, syscall.EINVAL) || errors.Is(err, os.ErrInvalid) {
+				errors.Is(err, syscall.EINVAL) {
 				continue
 			}
 			return nil, err
